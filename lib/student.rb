@@ -23,8 +23,9 @@ class Student
       SELECT * FROM students WHERE name = ?
     SQL
     
-    DB[:conn].execute(sql, name)
-    
+    DB[:conn].execute(sql, name).map do |row|
+      
+    end
   end
   
   def save
