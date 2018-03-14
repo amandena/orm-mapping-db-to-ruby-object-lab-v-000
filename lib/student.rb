@@ -82,8 +82,7 @@ class Student
   
   def self.first_X_students_in_grade_10(x)
     sql = <<-SQL
-      SELECT * FROM students WHERE grade = 10
-      FETCH FIRST x ROWS ONLY
+      SELECT FIRST x * FROM students WHERE grade = 10
     SQL
     
     DB[:conn].execute(sql).map do |row|
