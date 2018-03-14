@@ -82,7 +82,11 @@ class Student
   
   def self.first_x_students_in_grade_10(x)
     sql = <<-SQL
-      SELECT * FROM students WHERE grade = 10 
+      SELECT TOP x FROM students WHERE grade = 10 
     SQL
+    
+    DB[:conn].execute(sql).map do |row|
+      
+    end
   end
 end
